@@ -7,6 +7,17 @@ namespace Purchase.Transaction.Api.Models;
 public class FiscalCurrencyModel
 {
     public List<Data> Data { get; set; }
+    public Meta Meta { get; set; }
+}
+public class Meta
+{
+    [AliasAs("total-count")]
+    [JsonPropertyName("total-count")]
+    public int TotalCount { get; set; }
+
+    [AliasAs("total-pages")]
+    [JsonPropertyName("total-pages")]
+    public int TotalPages { get; set; }
 }
 
 public class Data

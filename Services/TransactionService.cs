@@ -36,12 +36,56 @@ namespace Purchase.Transaction.Api.Services
 
         public async Task<RetrievedPurchaseModel?> GetConvertedCurrencyAsync(Guid id, string country)
         {
-            var fiscalResponse = await _fiscalClient.GetConvertedCurrency();
+            var firstResponse = await _fiscalClient.GetConvertedCurrency(
+                pageNumber: 1,
+                pageSize: 1000
+            );
+
+            var tasks = Enumerable.Range(2, firstResponse.Meta.TotalPages - 1)
+                .Select(page => _fiscalClient.GetConvertedCurrency(pageNumber: page, pageSize: 1000))
+                .ToList();
+            var responses = await Task.WhenAll(tasks);
+            var allFiscalData = new FiscalCurrencyModel
+            {
+                Data = firstResponse.Data.Concat(responses.SelectMany(r => r.Data)).ToList(),
+                Meta = firstResponse.Meta
+            };
+
             var purchaseInfo = await _transactionRepository.GetPurchaseAsync(id);
 
-            if (purchaseInfo == null) return null;
+            if (allFiscalData == null || purchaseInfo == null) return null;
 
-            return null;
+            return ConvertCurrencyAndMap(allFiscalData, purchaseInfo, country);
+        }
+
+        private static RetrievedPurchaseModel ConvertCurrencyAndMap(FiscalCurrencyModel fiscalCurrencyModel, TransactionModel transactionModel, string country)
+        {
+            var requiredCurrencyModels = fiscalCurrencyModel.Data.FindAll(x => x.Country == country);
+            var expectedCurrencyRate = requiredCurrencyModels.FirstOrDefault(x => x.EffectiveDate <= transactionModel.TransactionDate)?.ExchangeRate;
+
+            RetrievedPurchaseModel retrievedPurchaseModel = new()
+            {
+                Id = transactionModel.Id,
+                Description = transactionModel.Description,
+                TransactionDate = transactionModel.TransactionDate,
+                PurchaseAmount = transactionModel.PurchaseAmount,
+                ExchangeRate = double.Parse(expectedCurrencyRate),
+                ConvertedAmount = transactionModel.PurchaseAmount * double.Parse(expectedCurrencyRate),
+                Country = country
+            };
+
+            return retrievedPurchaseModel;
         }
     }
 }
+
+/*
+public Guid Id { get; set; }
+    public string Description { get; set; } = string.Empty;
+    public DateTime TransactionDate { get; set; }
+    public double PurchaseAmount { get; set; }
+    public double ExchangeRate { get; set; }
+    public double ConvertedAmount { get; set; }
+    public string Country { get; set; } = string.Empty;
+
+*/

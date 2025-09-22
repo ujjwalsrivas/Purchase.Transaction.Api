@@ -14,11 +14,3 @@ public class RetrievedPurchaseModel
 
 }
 
-
-
-/*
-The retrieved purchase should include the identifier, the description, the transaction date, the original US dollar purchase
-amount, the exchange rate used, and the converted amount based upon the specified currency’s exchange rate for the
-date of the purchase.
-
-*/
