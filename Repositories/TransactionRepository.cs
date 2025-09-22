@@ -1,32 +1,40 @@
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Purchase.Transaction.Api.Models;
 using Purchase.Transaction.Api.Repositories.Interfaces;
-using System.Linq;
-using Purchase.Transaction.Api.Clients;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.EntityFrameworkCore;
 
-namespace Purchase.Transaction.Api.Repositories;
-
-public class TransactionRepository(AppDbContext _context) : ITransactionRepository
+namespace Purchase.Transaction.Api.Repositories
 {
-    private readonly AppDbContext context = _context;
-
-    public Task<TransactionModel> CreatePurchase(TransactionModel transactionModel)
+    public class TransactionRepository : ITransactionRepository
     {
-        this.context.TransactionModels.Add(transactionModel);
-        context.SaveChanges();
-        return Task.FromResult(transactionModel);
-    }
+        private readonly AppDbContext _context;
 
-    public Task<List<TransactionModel>> GetAllPurchase()
-    {
-        var res = context.TransactionModels.ToList();
-        return Task.FromResult(res);
-    }
+        public TransactionRepository(AppDbContext context)
+        {
+            _context = context;
+        }
 
-    public Task<TransactionModel?> GetPurchase(Guid id)
-    {
-        return context.TransactionModels.FirstOrDefaultAsync(x => x.Id == id);
+        public async Task<TransactionModel> CreatePurchaseAsync(TransactionModel transactionModel)
+        {
+            _context.TransactionModels.Add(transactionModel);
+            await _context.SaveChangesAsync();
+            return transactionModel;
+        }
+
+        public async Task<List<TransactionModel>> GetAllPurchaseAsync()
+        {
+            return await _context.TransactionModels
+                                 .AsNoTracking()
+                                 .ToListAsync();
+        }
+
+        public async Task<TransactionModel?> GetPurchaseAsync(Guid id)
+        {
+            return await _context.TransactionModels
+                                 .AsNoTracking()
+                                 .FirstOrDefaultAsync(x => x.Id == id);
+        }
     }
 }

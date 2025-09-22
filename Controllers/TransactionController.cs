@@ -7,15 +7,19 @@ namespace Purchase.Transaction.Api.Controllers
 {
     [Route("api/")]
     [ApiController]
-    public class TransactionController(ITransactionService _transactionService) : ControllerBase
+    public class TransactionController : ControllerBase
     {
-        private readonly ITransactionService transactionService = _transactionService;
+        private readonly ITransactionService transactionService;
+        public TransactionController(ITransactionService _transactionService)
+        {
+            this.transactionService = _transactionService;
+        }
 
         [HttpPost]
         [Route("v1/purchaseTransactions")]
         public IActionResult CreateTransaction([FromBody] TransactionModel transactionModel)
         {
-            this.transactionService.CreatePurchase(transactionModel);
+            transactionService.CreatePurchaseAsync(transactionModel);
             return Ok(transactionModel.Id);
         }
 
@@ -24,7 +28,7 @@ namespace Purchase.Transaction.Api.Controllers
         [ProducesResponseType(typeof(List<TransactionModel>), StatusCodes.Status200OK)]
         public IActionResult GetAllTransaction()
         {
-            var temp = this.transactionService.GetAllPurchase();
+            var temp = transactionService.GetAllPurchaseAsync();
             return Ok(temp);
         }
         
@@ -33,7 +37,7 @@ namespace Purchase.Transaction.Api.Controllers
         [ProducesResponseType(typeof(TransactionModel), StatusCodes.Status200OK)]
         public IActionResult GetTransaction(Guid id)
         {
-            var temp = this.transactionService.GetPurchase(id);
+            var temp = transactionService.GetPurchaseAsync(id);
             return Ok(temp);
         }
     }

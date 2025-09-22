@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models; // 👈 Needed for OpenApiInfo
+using Microsoft.OpenApi.Models;
 using Purchase.Transaction.Api.Clients;
 using Purchase.Transaction.Api.Repositories;
 using Purchase.Transaction.Api.Repositories.Interfaces;
@@ -12,7 +12,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(); 
 builder.Services.AddEndpointsApiExplorer();
 
-// ✅ Swagger setup with annotations and version info
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -21,7 +20,7 @@ builder.Services.AddSwaggerGen(c =>
         Version = "v1",
         Description = "API for managing purchase transactions"
     });
-    c.EnableAnnotations(); // 👈 Enables [SwaggerSchema], [SwaggerOperation], etc.
+    c.EnableAnnotations(); 
 });
 
 builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
@@ -35,7 +34,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

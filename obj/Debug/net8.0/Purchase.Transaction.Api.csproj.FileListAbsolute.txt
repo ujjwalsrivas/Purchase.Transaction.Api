@@ -21,6 +21,7 @@
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/Microsoft.OpenApi.dll
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/Refit.dll
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/Refit.HttpClientFactory.dll
+/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.Annotations.dll
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -31,6 +32,7 @@
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.csproj.CoreCompileInputs.cache
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.MvcApplicationPartsAssemblyInfo.cs
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.MvcApplicationPartsAssemblyInfo.cache
+/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.sourcelink.json
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/staticwebassets.build.json
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/staticwebassets.development.json
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/staticwebassets/msbuild.Purchase.Transaction.Api.Microsoft.AspNetCore.StaticWebAssets.props
@@ -45,4 +47,3 @@
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.pdb
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.genruntimeconfig.cache
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/ref/Purchase.Transaction.Api.dll
-/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.Annotations.dll
