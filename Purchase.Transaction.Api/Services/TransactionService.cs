@@ -60,7 +60,7 @@ namespace Purchase.Transaction.Api.Services
 
         private static RetrievedPurchaseModel ConvertCurrencyAndMap(FiscalCurrencyModel fiscalCurrencyModel, TransactionModel transactionModel, string country)
         {
-            var requiredCurrencyModels = fiscalCurrencyModel.Data.FindAll(x => x.Country == country);
+            var requiredCurrencyModels = fiscalCurrencyModel.Data.FindAll(x => x.Country.ToLower() == country.ToLower());
             if (requiredCurrencyModels.Count == 0)
             {
                 return new RetrievedPurchaseModel();
@@ -74,7 +74,7 @@ namespace Purchase.Transaction.Api.Services
                 TransactionDate = transactionModel.TransactionDate,
                 PurchaseAmount = transactionModel.PurchaseAmount,
                 ExchangeRate = double.Parse(expectedCurrencyRate ?? "0"),
-                ConvertedAmount = transactionModel.PurchaseAmount * double.Parse(expectedCurrencyRate ?? "0"),
+                ConvertedAmount = Math.Round(transactionModel.PurchaseAmount * double.Parse(expectedCurrencyRate ?? "0"), 2),
                 Country = country
             };
 
