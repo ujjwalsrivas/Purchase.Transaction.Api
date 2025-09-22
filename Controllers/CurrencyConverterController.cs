@@ -25,8 +25,8 @@ namespace Purchase.Transaction.Api.Controllers
         {
             var result = await _transactionService.GetConvertedCurrencyAsync(id, country);
 
-            if (result == null)
-                return NotFound();
+            if (result == null || result.Description == "")
+                return BadRequest("Purchase cannot be converted to target currency.");
 
             return Ok(result);
         }

@@ -61,6 +61,10 @@ namespace Purchase.Transaction.Api.Services
         private static RetrievedPurchaseModel ConvertCurrencyAndMap(FiscalCurrencyModel fiscalCurrencyModel, TransactionModel transactionModel, string country)
         {
             var requiredCurrencyModels = fiscalCurrencyModel.Data.FindAll(x => x.Country == country);
+            if (requiredCurrencyModels.Count == 0)
+            {
+                return new RetrievedPurchaseModel();
+            }
             var expectedCurrencyRate = requiredCurrencyModels.FirstOrDefault(x => x.EffectiveDate <= transactionModel.TransactionDate)?.ExchangeRate;
 
             RetrievedPurchaseModel retrievedPurchaseModel = new()
@@ -79,13 +83,3 @@ namespace Purchase.Transaction.Api.Services
     }
 }
 
-/*
-public Guid Id { get; set; }
-    public string Description { get; set; } = string.Empty;
-    public DateTime TransactionDate { get; set; }
-    public double PurchaseAmount { get; set; }
-    public double ExchangeRate { get; set; }
-    public double ConvertedAmount { get; set; }
-    public string Country { get; set; } = string.Empty;
-
-*/
