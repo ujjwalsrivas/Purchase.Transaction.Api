@@ -19,6 +19,8 @@ dotnet restore
 dotnet run
 ```
 
+Browse: http://localhost:5081/swagger/index.html
+
 ## Running tests
 
 ```bash
