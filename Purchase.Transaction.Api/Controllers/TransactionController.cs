@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Purchase.Transaction.Api.Models;
 using Purchase.Transaction.Api.Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Purchase.Transaction.Api.Controllers
 {
@@ -9,36 +12,38 @@ namespace Purchase.Transaction.Api.Controllers
     [ApiController]
     public class TransactionController : ControllerBase
     {
-        private readonly ITransactionService transactionService;
-        public TransactionController(ITransactionService _transactionService)
+        private readonly ITransactionService _transactionService;
+
+        public TransactionController(ITransactionService transactionService)
         {
-            this.transactionService = _transactionService;
+            _transactionService = transactionService;
         }
 
         [HttpPost]
         [Route("v1/purchaseTransactions")]
-        public IActionResult CreateTransaction([FromBody] TransactionModel transactionModel)
+        public async Task<IActionResult> CreateTransaction([FromBody] TransactionModel transactionModel)
         {
-            transactionService.CreatePurchaseAsync(transactionModel);
-            return Ok(transactionModel.Id);
+            var createdTransaction = await _transactionService.CreatePurchaseAsync(transactionModel);
+            return Ok(createdTransaction.Id);
         }
 
         [HttpGet]
         [Route("v1/purchaseTransactions")]
         [ProducesResponseType(typeof(List<TransactionModel>), StatusCodes.Status200OK)]
-        public IActionResult GetAllTransaction()
+        public async Task<IActionResult> GetAllTransaction()
         {
-            var temp = transactionService.GetAllPurchaseAsync();
-            return Ok(temp);
+            var transactions = await _transactionService.GetAllPurchaseAsync();
+            return Ok(transactions);
         }
-        
+
         [HttpGet]
         [Route("v1/purchaseTransactions/{id}")]
         [ProducesResponseType(typeof(TransactionModel), StatusCodes.Status200OK)]
-        public IActionResult GetTransaction(Guid id)
+        public async Task<IActionResult> GetTransaction(Guid id)
         {
-            var temp = transactionService.GetPurchaseAsync(id);
-            return Ok(temp);
+            var transaction = await _transactionService.GetPurchaseAsync(id);
+            if (transaction == null) return NotFound();
+            return Ok(transaction);
         }
     }
 }

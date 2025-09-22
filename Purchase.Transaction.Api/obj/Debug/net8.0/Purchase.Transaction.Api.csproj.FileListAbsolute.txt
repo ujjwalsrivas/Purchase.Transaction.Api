@@ -1,11 +1,3 @@
-/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.csproj.AssemblyReference.cache
-/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.GeneratedMSBuildEditorConfig.editorconfig
-/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.AssemblyInfoInputs.cache
-/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.AssemblyInfo.cs
-/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.csproj.CoreCompileInputs.cache
-/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.MvcApplicationPartsAssemblyInfo.cs
-/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.MvcApplicationPartsAssemblyInfo.cache
-/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.sourcelink.json
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/appsettings.Development.json
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/appsettings.json
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/Purchase.Transaction.Api
@@ -33,6 +25,14 @@
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.csproj.AssemblyReference.cache
+/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.AssemblyInfoInputs.cache
+/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.AssemblyInfo.cs
+/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.csproj.CoreCompileInputs.cache
+/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.MvcApplicationPartsAssemblyInfo.cs
+/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.MvcApplicationPartsAssemblyInfo.cache
+/Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/Purchase.Transaction.Api.sourcelink.json
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/staticwebassets.build.json
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/staticwebassets.development.json
 /Users/ujjwalsrivastava/Projects/wex/Purchase.Transaction.Api/obj/Debug/net8.0/staticwebassets/msbuild.Purchase.Transaction.Api.Microsoft.AspNetCore.StaticWebAssets.props
