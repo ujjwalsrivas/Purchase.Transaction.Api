@@ -73,8 +73,8 @@ namespace Purchase.Transaction.Api.Services
                 Description = transactionModel.Description,
                 TransactionDate = transactionModel.TransactionDate,
                 PurchaseAmount = transactionModel.PurchaseAmount,
-                ExchangeRate = double.Parse(expectedCurrencyRate),
-                ConvertedAmount = transactionModel.PurchaseAmount * double.Parse(expectedCurrencyRate),
+                ExchangeRate = double.Parse(expectedCurrencyRate ?? "0"),
+                ConvertedAmount = transactionModel.PurchaseAmount * double.Parse(expectedCurrencyRate ?? "0"),
                 Country = country
             };
 
